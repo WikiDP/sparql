@@ -1,0 +1,21 @@
+SELECT ?item ?itemLabel ?valueLabel ?detail ?source ?prov ?nameLabel
+
+{
+
+   ?item wdt:P4152 ?value .
+
+   ?item p:P4152 ?detail .
+
+   ?detail prov:wasDerivedFrom      ?source .
+
+      OPTIONAL { 
+
+   ?source pr:P248 ?name      
+
+ }
+
+   SERVICE wikibase:label { bd:serviceParam wikibase:language "en,en"  }    
+
+}
+
+LIMIT 1000
